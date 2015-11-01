@@ -46,7 +46,7 @@ void get_config()
 		cprint(POP_Y+7,  POP_X+6, "(5) Refresh Screen");
 		cprint(POP_Y+8,  POP_X+6, "(6) Display DMI Data");
 		cprint(POP_Y+9,  POP_X+6, "(7) Display SPD Data");
-		cprint(POP_Y+11, POP_X+6,	"(0) Continue");
+		cprint(POP_Y+11, POP_X+6,	"(0) Continue rowHAMMER TIME");
 
 		/* Wait for key release */
 		/* Fooey! This nuts'es up the serial input. */
@@ -174,7 +174,7 @@ void get_config()
 		case 3:
 			/* 2 - Address Range */
 			popclear();
-			cprint(POP_Y+1, POP_X+2, "Test Address Range:");
+			cprint(POP_Y+1, POP_X+2, "rowHAMMER TIME Address Range:");
 			cprint(POP_Y+3, POP_X+6, "(1) Set Lower Limit");
 			cprint(POP_Y+4, POP_X+6, "(2) Set Upper Limit");
 			cprint(POP_Y+5, POP_X+6, "(3) Test All Memory");
