@@ -1,7 +1,11 @@
 			====================
-			= MemTest-86 v4.0  =
-			=   28 Mar, 2011    =
+			= MemeTest-86 v4.0 =
+			=   28 Mar, 2011   =
 			=   Chris Brady    =
+			=   Memeified on   =
+			=   Nov 1, 2015    =
+			=       by	   =
+			=    kylemsguy     =
 			====================
 Table of Contents
 =================
@@ -865,7 +869,7 @@ Enhancements in v1.5
 
 Enhancements in v1.4
    Changes to the memory sizing code to avoid problems with some
-   motherboards where memtest would find more memory than actually
+   motherboards where memetest would find more memory than actually
    exists.
 
    Added support for a console serial port. (thanks to Doug Sisk)

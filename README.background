@@ -1,12 +1,12 @@
-                       The Anatomy & Physiology of Memtest86-SMP
+                       The Anatomy & Physiology of Memetest86-SMP
                        -----------------------------------------
 
 1. Binary layout
                                             
        ---------------------------------------------------------------
-       | bootsect.o      | setup.o          | head.o memtest_shared  |
+       | bootsect.o      | setup.o          | head.o memetest_shared  |
        ---------------------------------------------------------------
-Labels                                _start<-------memtest---------->_end
+Labels                                _start<-------memetest---------->_end
        -----------------------------------------------------------
 addr   0               512        512+4*512 |
        -----------------------------------------------------------
@@ -16,18 +16,18 @@ addr   0               512        512+4*512 |
       and copies 
       i.   itself to 0x90000
       ii.  setup.o to 0x90200
-      iii. everything between _start and _end i.e memtest 
+      iii. everything between _start and _end i.e memetest 
            to 0x10000
    b. jumps somewhere into the copied bootsect.o code at 0x90000
       ,does some trivial stuff and jumps to setup.o
    c. setup.o puts the processor in protected mode, with a basic
       gdt and idt and does a long jump to the start of the 
-      memtest code (startup_32, see 4 below). The code and data 
+      memetest code (startup_32, see 4 below). The code and data 
       segment base address are all set to 0x0. So a linear 
       address range and no paging is enabled.
    d. From now on we no longer required the bootsect.o and setup.o 
       code.
-3. The code in memtest is compiled as position independent
+3. The code in memetest is compiled as position independent
    code. Which implies that the code can be moved dynamically in 
    the address space and can still work. Since we are now in head.o,
    which is compiled with PIC , we no longer should use absolute 
@@ -44,8 +44,8 @@ addr   0               512        512+4*512 |
    the gdtr and idtr register values to point to the final(!) 
    gdt and ldt tables in head.o, since we can no longer use the 
    gdt and ldt tables in setup.o, and call the dynamic linker 
-   stub in memtest_shared (see call _dl_start in head.S). This 
-   dynamic linker stub relocates all the code in memtest w.r.t 
+   stub in memetest_shared (see call _dl_start in head.S). This 
+   dynamic linker stub relocates all the code in memetest w.r.t 
    the new base location i.e 0x1000. Finally we call the test_start() 
    'C' routine.
 5. The test_start() C routine is the main routine which lets the BSP 
@@ -70,12 +70,12 @@ addr   0               512        512+4*512 |
          are instructed by the BSP to jump to a new location, 
          which can either be a test execution or spin wait at a 
          new location.
-  iii. The base address at which memtest tries to execute as far
+  iii. The base address at which memetest tries to execute as far
        as possible is 0x2000. This is the lowest possible address
-       memtest can put itself at. So the next step is to 
+       memetest can put itself at. So the next step is to 
        move to 0x2000, which it cannot directly, since copying
        code to 0x2000 will override the existing code at 0x1000.
-       0x2000 +sizeof(memtest) will usually be greater than 0x1000.
+       0x2000 +sizeof(memetest) will usually be greater than 0x1000.
        so we temporarily relocated to 0x200000 and then relocate
        back to 0x2000. Every time the BSP relocates the code to the
        new location, it pulls up the APs spin waiting at the old 
@@ -89,18 +89,18 @@ addr   0               512        512+4*512 |
 
    Address map during normal execution.
        --------------------------------------------------------------------
-             | head.o memtest_shared  |                                   |RAM_END
+             | head.o memetest_shared  |                                   |RAM_END
        --------------------------------------------------------------------
-Labels _start<-------memtest---------->_end
+Labels _start<-------memetest---------->_end
        --------------------------------------------------------------------
 addr   0x0   0x2000                   | Memory that is being tested..     |RAM_END
        --------------------------------------------------------------------
 
    Address map during relocated state.
        --------------------------------------------------------------------
-                                      | head.o memtest_shared  |          |RAM_END
+                                      | head.o memetest_shared  |          |RAM_END
        --------------------------------------------------------------------
-Labels                          _start<-------memtest---------->_end
+Labels                          _start<-------memetest---------->_end
        --------------------------------------------------------------------
 addr   memory that is being tested... |0x200000                 |         |RAM_END
        --------------------------------------------------------------------
@@ -111,8 +111,8 @@ addr   memory that is being tested... |0x200000                 |         |RAM_E
        placed in v->pmap[] array. This array is the reference 
        of the RAM memory map on the system. 
     v. The memory range(in page numbers) which the 
-       memtest86 can test is partitioned into windows.
-       the current version of memtest86-smp has the capability
+       memetest86 can test is partitioned into windows.
+       the current version of memetest86-smp has the capability
        to test the memory from 0x0 - 0xFFFFFFFFF (max address
        when pae mode is enabled). 
        We then compute the linear memory address ranges(called
@@ -142,15 +142,15 @@ addr   memory that is being tested... |0x200000                 |         |RAM_E
        next window follows the same procedure till all the windows 
        are done. Once all the windows are done, the BSP moves to the
        next test. Before executing in any window the BSP checks if
-       the window overlaps with the code/data of memtest86, if so
+       the window overlaps with the code/data of memetest86, if so
        tries to relocate to 0x200000. If the window includes both 
        0x2000 as well as 0x200000  the BSP skips that window.
-       Looking at the window values the only time the memtest
+       Looking at the window values the only time the memetest
        relocates is when testing the 0 - 640K window.
 
 Known Issues:
-* Memtest86-smp does not work on IBM-NUMA machines, x440 and friends.
+* Memetest86-smp does not work on IBM-NUMA machines, x440 and friends.
 
 email comments to:
 Kalyan Rajasekharuni<kc_rajasekharuni@yahoo.com>
-Sub: Memtest86-SMP
+Sub: Memetest86-SMP
