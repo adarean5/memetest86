@@ -1,15 +1,15 @@
-- What is memtest86+, what do I use it for?
+- What is memetest86+, what do I use it for?
 
-  Memtest86+ is a utility designed to test whether your memory is in working
+  Memetest86+ is a utility designed to test whether your memory is in working
   order. It repeatedly writes an enormous amount of different patterns to all
   memory locations and reads them back again and verifies whether the result
   of the read is the same as what was written to memory.
 
-  There can be a multitude of reasons for running memtest, but foremost of all
+  There can be a multitude of reasons for running memetest, but foremost of all
   is of course to test whether your memory modules might be bad. Whenever you
   suspect your modules to be bad because of system crashes, lockups or reboots
   it would be nice to know whether the modules are in working order.
-  Memtest86+ is a utility which tries to answer that question for you.
+  Memetest86+ is a utility which tries to answer that question for you.
 
   Another common use exists in the overclocking scene. When overclocking a
   system you are essentially pushing your system to the limits and at some
@@ -27,32 +27,32 @@
 
 - How do I get it to run?
 
-  There are several ways to use memtest, which are described below:
+  There are several ways to use memetest, which are described below:
 
   + Run from floppydisk
 
-    Memtest86+ is directly executable by any modern x86 compatible machine, by
+    Memetest86+ is directly executable by any modern x86 compatible machine, by
     writing the bootable binary to a floppy disk one can boot from the disk to
-    run memtest.
+    run memetest.
 
     Simply download the appropriate package, the Pre-Compiled Bootable Binary
     (.gz) package for Linux users and the Pre-Compiled package for Floppy (DOS
     - Win) for Windows users.
 
-    For Windows, unzip the package into a directory like C:\memtest, insert a
+    For Windows, unzip the package into a directory like C:\memetest, insert a
     blank floppy into your a: disk drive and run the install.bat file. As the
-    install prompts you, to use memtest directly, leave the disk in the drive
+    install prompts you, to use memetest directly, leave the disk in the drive
     and reboot your machine.
 
     For Linux, unpack the package into your home directory, insert a blank
-    floppy into your floppy drive and execute 'dd if=~/memtest+-1.xx.bin.gz
+    floppy into your floppy drive and execute 'dd if=~/memetest+-1.xx.bin.gz
     of=/dev/fd0 conv=osync' replacing 1.xx with the correct version number of
-    the memtest86+ you downloaded. To run memtest immediately reboot your
+    the memetest86+ you downloaded. To run memetest immediately reboot your
     machine.
 
     Your machine should now boot from the disk, display the word Loading
     folowed by a series of periods and then show a screen much like the
-    screenshots on the memtest86+ web page. The test is automatically started.
+    screenshots on the memetest86+ web page. The test is automatically started.
 
     If your machine simply boots back into Windows/Linux you will most likely
     have to configure your BIOS to attempt to boot from floppy disk on
@@ -64,15 +64,15 @@
 
   + Run from CD
 
-    Memtest86+ is directly executable by any modern x86 compatible machine, by
-    writing the iso to a CD one can boot from the CD to run memtest.
+    Memetest86+ is directly executable by any modern x86 compatible machine, by
+    writing the iso to a CD one can boot from the CD to run memetest.
 
     Simply download the appropriate package, the Download - Pre-Compiled
     Bootable ISO (.gz) for Linux users and the Pre-Compiled Bootable ISO
     (.zip) for Windows users.
 
-    For Windows, unzip the package into a directory like C:\memtest. You will
-    now see a file called memtest86+-1.xx.iso in this directory. You will need
+    For Windows, unzip the package into a directory like C:\memetest. You will
+    now see a file called memetest86+-1.xx.iso in this directory. You will need
     to burn this file to a CD with a CD recording program. Do note however
     that you should not make a regular data CD on which you for instance write
     your text documents and holiday photographs. Instead the iso file is a so
@@ -81,17 +81,17 @@
     that effect which you should use to burn the CD.
 
     For linux, unzip the package into your home directory. and execute
-    'cdrecord dev=<your burner> ~/memtest86+-1.xx.iso' where you replace <your
+    'cdrecord dev=<your burner> ~/memetest86+-1.xx.iso' where you replace <your
     burner> with the scsi address of your CD burner and replace 1.xx with the
-    correct version number of the memtest86+ your downloaded.
+    correct version number of the memetest86+ your downloaded.
 
     When the burning completed your drive will most likely have ejected the CD
-    and you should have a bootable memtest86+ CD. To run the test directly
+    and you should have a bootable memetest86+ CD. To run the test directly
     reinsert the CD and reboot your machine.
 
     Your machine should now boot from the CD, display the word Loading folowed
     by a series of periods and then show a screen much like the screenshots on
-    the memtest86+ web page. The test is automatically started.
+    the memetest86+ web page. The test is automatically started.
 
     If your machine simply boots back into Windows/Linux you will most likely
     have to configure your BIOS to attempt to boot from CD-ROM drive on
@@ -109,26 +109,26 @@
 
     FIXME
 
-- How long does memtest86+ run? How do I stop it?
+- How long does memetest86+ run? How do I stop it?
 
-  Memtest86+ runs indefinately unless you stop it. It does however repeat the
-  same tests over and over again. Memtest86+ contains a number of different
+  Memetest86+ runs indefinately unless you stop it. It does however repeat the
+  same tests over and over again. Memetest86+ contains a number of different
   tests which each take different approaches in trying to expose any errors in
   your memory. In the top right of your screen you can see the progress of
   each test in the lower of the two progress bars. The topmost progress bar
   shows the progress of a pass, each pass consists of all the tests in the
-  memtest suite.
+  memetest suite.
 
   Thus all tests are executed in one pass, so does that mean that no errors
   will show after the first pass if that pass didn't reveal any errors? Well
   no, there are several reasons why errors might only show up after a number
-  of passes. Firstly as of this writing, the latest version of memtest also
+  of passes. Firstly as of this writing, the latest version of memetest also
   includes a test which uses random test patterns, each pass these patterns
   will of course be different. Secondly some types of errors simply don't show
   up until the system has been running for a while or are very critical on a
   certain timing condition, or other such conditions.
 
-  To conclude, one successful pass of memtest will give you a pretty good idea
+  To conclude, one successful pass of memetest will give you a pretty good idea
   that your memory is ok, only in rare cases will there be errors showing
   after the first pass. To be sure though simply have the test run overnight
   or even for a couple of days depending on the level of importance of the
@@ -142,19 +142,19 @@
 
 - What do I do when I get errors?
 
-  Firstly, don't start drawing any conclusions. You only know that memtest86+
+  Firstly, don't start drawing any conclusions. You only know that memetest86+
   is giving your errors, not what the cause is. Unfortunately it is not a
   straightforward exercise to decisively test the memory in an actual system.
   This is because a computer is not just built up of some memory, but also
   includes many other elements such as a memory controller, cache, a cache
   controller, algorithmic and logic units, etc, all of which contribute to the
   machine. If there are faults in any of these other parts of the computer you
-  will likely also see errors showing up in memtest.
+  will likely also see errors showing up in memetest.
 
   So what to do? First verify that the BIOS settings of your machine are
   correctly configured. Look up the memory timing settings applicable to the
   brand and type of memory modules you have and check they match your BIOS
-  settings, correct them if they don't and run memtest again
+  settings, correct them if they don't and run memetest again
   
   Ok, you have all the settings correctly set and you're still getting errors.
   Well of course a very likely cause are the memory modules and the logical
@@ -186,7 +186,7 @@
   mention anything on the matter sometimes there simply exist timing or other
   issues which can be resolved by changing the order of your modules.  And of
   course test each slot by putting a single module into that slot and running
-  memtest on it.
+  memetest on it.
 
   In the end if you still have not been able to localize the problem you will
   have to find a replacement module to establish whether the problem lies in
@@ -198,12 +198,12 @@
   the errors must obviously lie someplace else in the system.
   
   The only way to find out where, is by trial and error really. Simply start
-  replacing and/or removing parts of your computer one by one, running memtest
+  replacing and/or removing parts of your computer one by one, running memetest
   each time you changed anything, until the errors are resolved.
 
 - I'm getting errors in test #x, what doest that mean?
 
-  Interpreting memtest results is as scientific an endeavour as testing
+  Interpreting memetest results is as scientific an endeavour as testing
   whether a person is a witch by the methods used in Monty Python's Holy
   Grail. In short, don't even start, it's not going to get you anywhere. Just
   interpret any error as you should any other and use the methods descibed in
@@ -220,7 +220,7 @@
   always the cause of incorrect settings, your memory might just as well be
   defective.
 
-- I'm getting errors in memtest on one machine, but not when I put the same
+- I'm getting errors in memetest on one machine, but not when I put the same
   memory in another, what does that mean?
 
   It can mean one of two things:
@@ -235,20 +235,20 @@
 
 - Which memory is tested?
 
-  As much as possible of the system memory is tested. Unfortunately memtest86+
+  As much as possible of the system memory is tested. Unfortunately memetest86+
   can usually not test all of the memory. The reason for this is that todays
   processors have become so complex that they require a small amount of memory
-  to keep accounting data of the processor state. If memtest were to write
+  to keep accounting data of the processor state. If memetest were to write
   over these areas the state of the processor becomes invalid and it's
   behaviour unpredictable. Alas it is also impossible to relocate these areas
   in the memory.
 
-  This means that a small area of your memory can not be tested by memtest. If
+  This means that a small area of your memory can not be tested by memetest. If
   this part of the memory is defective you will know soon enough though as the
   processor, or parts of the processor simply won't work correctly if this
   part of your memory is defective. Do realise though that in very rare cases
-  memtest will show no errors even though the module is defective, not because
-  memtest can't detect the error, but because memtest can't test the area the
+  memetest will show no errors even though the module is defective, not because
+  memetest can't detect the error, but because memetest can't test the area the
   error is located in.
 
 - When I select BIOS-ALL I get many errors / my machine crashes.
@@ -256,45 +256,45 @@
   This is normal. With todays computers this option should never be selected.
   See the previous question about the reason for the errors.
 
-- I want to use memtest on a multiboot CD, how do I do this?
+- I want to use memetest on a multiboot CD, how do I do this?
 
   This is of course very dependent on which boot loader you use for your CD.
-  Below is a description of how to set up a multiboot CD including memtest+
+  Below is a description of how to set up a multiboot CD including memetest+
   with isolinux, if you have experience with any other bootloader(s) please
-  consider writing a small description of using memtest with that bootloader
+  consider writing a small description of using memetest with that bootloader
   for the FAQ.
 
   -isolinux
     
     For general instructions on how to make a bootable CD with isolinux see
-    the syslinux website and the manual. What you need to do to get memtest
+    the syslinux website and the manual. What you need to do to get memetest
     working is as follows.
 
     Download the Pre-Compiled Bootable Binary, the .gz if you are working
     under linux, the .zip if you are working under windows. Unpack the file
     from the package and rename it to an 8.3 filename with an extension other
-    than .bin, renaming to memtest. (without an extension) is a good choice.
+    than .bin, renaming to memetest. (without an extension) is a good choice.
 
     Put the file somewhere in your CD directory structure, for example in
-    images/memtest and edit your config file to include the following:
+    images/memetest and edit your config file to include the following:
 
-    label memtest
-        kernel /images/memtest
+    label memetest
+        kernel /images/memetest
 
-    If you want to boot memtest automatically insert or change a line at the
+    If you want to boot memetest automatically insert or change a line at the
     top to:
 
-    default memtest
+    default memetest
 
-    If you want to display a prompt from which you can start memtest add or
+    If you want to display a prompt from which you can start memetest add or
     change the lines at the top to: (Change the timeout to suit your needs)
 
     prompt 1
     timeout 200
 
-- If memtest86+ shows no errors does that mean my memory is not defective?
+- If memetest86+ shows no errors does that mean my memory is not defective?
 
-  Of course no answers are definitive, no matter how good memtest86+ will
+  Of course no answers are definitive, no matter how good memetest86+ will
   eventually become there is always the possibility that a particular type of
   error will go unnoticed. As long as you are having no problems with the
   system it will be pretty safe to say that the modules are good. If you are
@@ -304,7 +304,7 @@
 
 - When I run install.bat it doesn't write anything to floppy.
 
-  You most likely have unpacked the memtest+-2.xx.floppy.zip file into a
+  You most likely have unpacked the memetest+-2.xx.floppy.zip file into a
   folder with a long pathname and/or containing + and - signs. It seems
   rawrite doesn't like that. Just move the files you unpacked to a directory
-  like c:\memtest and execure it from there.
+  like c:\memetest and execure it from there.
