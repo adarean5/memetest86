@@ -48,7 +48,7 @@ static void	test_setup(void);
 static int	compute_segments(struct pmap map, int cpu);
 int		do_test(int ord);
 struct tseq tseq[] = {
-	{1, -1,  0,   6, 0, "[Address test, walking ones, no cache] "},
+	{1, -1,  0,   6, 0, "[Address test, walking ones, no Ca$h] "},
 	{1, -1,  1,   6, 0, "[Address test, own address Sequential] "},
 	{1, 32,  2,   6, 0, "[Address test, own address Parallel]   "},
 	{1, 32,  3,   6, 0, "[Moving inversions, 1s & 0s Parallel]  "},
