@@ -45,7 +45,7 @@ void get_config()
 		cprint(POP_Y+6,  POP_X+4, "(4) Select with COREZ 2 test");
 		cprint(POP_Y+7,  POP_X+4, "(5) Refresh Screen");
 		cprint(POP_Y+8,  POP_X+4, "(6) DISPLYUZ DMI DATUZ");
-		cprint(POP_Y+9,  POP_X+4, "(7) Showz SPD Dataz");
+		cprint(POP_Y+9,  POP_X+4, "(7) such RAM much SPD");
 		cprint(POP_Y+11, POP_X+4,	"(0) Continue rowHAMMER TIME");
 
 		/* Wait for key release */

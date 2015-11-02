@@ -313,7 +313,7 @@ void common_err( ulong *adr, ulong good, ulong bad, ulong xor, int type)
 		if (v->erri.hdr_flag == 0) {
 			clear_scroll();
 			cprint(LINE_HEADER, 0,
-"Tst  Pass   Failing Address          Good       Bad     Err-Bits  Count CPU");
+"Tst  Pass   EPIC FAIL address        Good       Bad     Err-Bits  Count CPU");
 			cprint(LINE_HEADER+1, 0,
 "---  ----  -----------------------  --------  --------  --------  ----- ----");
 			v->erri.hdr_flag++;
