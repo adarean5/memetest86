@@ -1,9 +1,9 @@
-/* config.c - MemTest-86  Version 3.4
+/* config.c - MemeTest-86  Version 3.4
  *
  * Released under version 2 of the Gnu Public License.
  * By Chris Brady
  * ----------------------------------------------------
- * MemTest86+ V5.00 Specific code (GPL V2.0)
+ * MemeTest86+ V5.00 Specific code (GPL V2.0)
  * By Samuel DEMEULEMEESTER, sdemeule@memtest.org
  * http://www.x86-secret.com - http://www.memtest.org
  */
@@ -39,14 +39,14 @@ void get_config()
 	wait_keyup();
 	while(!flag) {
 		cprint(POP_Y+1,  POP_X+2, "Settings:");
-		cprint(POP_Y+3,  POP_X+6, "(1) Test Selection");
-		cprint(POP_Y+4,  POP_X+6, "(2) Address Range");
-		cprint(POP_Y+5,  POP_X+6, "(3) Error Report Mode");
-		cprint(POP_Y+6,  POP_X+6, "(4) Core Selection");
-		cprint(POP_Y+7,  POP_X+6, "(5) Refresh Screen");
-		cprint(POP_Y+8,  POP_X+6, "(6) Display DMI Data");
-		cprint(POP_Y+9,  POP_X+6, "(7) Display SPD Data");
-		cprint(POP_Y+11, POP_X+6,	"(0) Continue rowHAMMER TIME");
+		cprint(POP_Y+3,  POP_X+4, "(1) Select wat MEMEZ to test");
+		cprint(POP_Y+4,  POP_X+4, "(2) Address Range");
+		cprint(POP_Y+5,  POP_X+4, "(3) O NOES ERRORZ Mode");
+		cprint(POP_Y+6,  POP_X+4, "(4) Select with COREZ 2 test");
+		cprint(POP_Y+7,  POP_X+4, "(5) Refresh Screen");
+		cprint(POP_Y+8,  POP_X+4, "(6) DISPLYUZ DMI DATUZ");
+		cprint(POP_Y+9,  POP_X+4, "(7) Showz SPD Dataz");
+		cprint(POP_Y+11, POP_X+4,	"(0) Continue rowHAMMER TIME");
 
 		/* Wait for key release */
 		/* Fooey! This nuts'es up the serial input. */
@@ -249,12 +249,12 @@ void get_config()
 			/* Error Mode */
 			popclear();
 			cprint(POP_Y+1, POP_X+2, "Printing Mode:");
-			cprint(POP_Y+3, POP_X+6, "(1) Error Summary");
-			cprint(POP_Y+4, POP_X+6, "(2) Individual Errors");
-			cprint(POP_Y+5, POP_X+6, "(3) BadRAM Patterns");
-			cprint(POP_Y+6, POP_X+6, "(4) Error Counts Only");
-			cprint(POP_Y+7, POP_X+6, "(5) Beep on Error");
-			cprint(POP_Y+8, POP_X+6, "(0) Cancel");
+			cprint(POP_Y+3, POP_X+6, "(1) O NOES ALL ERRORZ");
+			cprint(POP_Y+4, POP_X+6, "(2) O NOES ONE ERRORZ");
+			cprint(POP_Y+5, POP_X+6, "(3) BadRAM Patterns. BADRAM");
+			cprint(POP_Y+6, POP_X+6, "(4) O NOES HOW MANYZ ERRORZ");
+			cprint(POP_Y+7, POP_X+6, "(5) BEEP BEEP BEEP ERRORZ");
+			cprint(POP_Y+8, POP_X+6, "(0) GTFO");
 			cprint(POP_Y+3+v->printmode, POP_X+5, ">");
 			if (beepmode) { cprint(POP_Y+7, POP_X+5, ">"); }
 			wait_keyup();
@@ -306,11 +306,11 @@ void get_config()
     			/* CPU Mode */
     	reprint_screen = 1;
 			popclear();
-			cprint(POP_Y+1, POP_X+2, "CPU Selection Mode:");
+			cprint(POP_Y+1, POP_X+2, "BRAINE Selection Mode:");
 			cprint(POP_Y+3, POP_X+6, "(1) Parallel (All)");
-			cprint(POP_Y+4, POP_X+6, "(2) Round Robin (RRb)");
+			cprint(POP_Y+4, POP_X+6, "(2) Round Robin Hood (RRbH)");
 			cprint(POP_Y+5, POP_X+6, "(3) Sequential (Seq)");
-			cprint(POP_Y+6, POP_X+6, "(0) Cancel");
+			cprint(POP_Y+6, POP_X+6, "(0) NOPE BYE");
 			cprint(POP_Y+2+cpu_mode, POP_X+5, ">");
 			wait_keyup();
 			while(!sflag) {

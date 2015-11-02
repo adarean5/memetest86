@@ -72,6 +72,10 @@ iso:
 	make all
 	./makeiso.sh
 
+testiso: 
+	make iso
+	qemu-system-i386 -cdrom mt501.iso -soundhw pcspk
+
 install: all
 	install -D memetest.bin $(DESTDIR)/boot/memetest.bin
 

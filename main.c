@@ -49,17 +49,17 @@ static void	test_setup(void);
 static int	compute_segments(struct pmap map, int cpu);
 int		do_test(int ord);
 struct tseq tseq[] = {
-	{1, -1,  0,   6, 0, "[Address test, walking ones, no Ca$h] "},
-	{1, -1,  1,   6, 0, "[Address test, own address Sequential] "},
-	{1, 32,  2,   6, 0, "[Address test, own address Parallel]   "},
+	{1, -1,  0,   6, 0, "[Address test, walking ones, no Ca$h]  "},
+	{1, -1,  1,   6, 0, "[Address test, 0wnd addre$$ Sequential]"},
+	{1, 32,  2,   6, 0, "[Address test, 0wn3d addre$$ Parallel] "},
 	{1, 32,  3,   6, 0, "[Moving inversions, 1s & 0s Parallel]  "},
 	{1, 32,  5,   3, 0, "[Moving inversions, 8 bit pattern]     "},
-	{1, 32,  6,  30, 0, "[Moving inversions, random pattern]    "},
-	{1, 32,  7,  81, 0, "[Block move]                           "}, 
+	{1, 32,  6,  30, 0, "[Moving inversions, RNGesus pattern]   "},
+	{1, 32,  7,  81, 0, "[MOVING ZE BLOCKZ]                     "}, 
 	{1,  1,  8,   3, 0, "[Moving inversions, 32 bit pattern]    "}, 
-	{1, 32,  9,  48, 0, "[Random number sequence]               "},
-  {1, 32, 10,   6, 0, "[Modulo 20, Random pattern]            "},
-	{1, 1,  11, 240, 0, "[Bit fade test, 2 patterns]            "},
+	{1, 32,  9,  48, 0, "[RNGesus Sequence]                     "},
+        {1, 32, 10,   6, 0, "[Modulo 20, RNGesus Pattern]           "},
+	{1, 1,  11, 240, 0, "[Bit fade test, 2 patternz]            "},
 	{1, 0,   0,   0, 0, NULL}
 };
 
@@ -769,7 +769,7 @@ void test_start(void)
 			    /* If onepass is enabled and we did not get any errors
 			     * reboot to exit the test */
 			    if (onepass) {	reboot();   }
-			    if (!btflag) cprint(LINE_MSG, COL_MSG-8, "** Pass complete, no errors, press Esc to exit **");
+			    if (!btflag) cprint(LINE_MSG, COL_MSG-8, "** Pass complete, no errors, PRAISE HELIX, press Esc to exit **");
 					if(BEEP_END_NO_ERROR) 
 						{
 							beep(1000);
