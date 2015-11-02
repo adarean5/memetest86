@@ -59,6 +59,9 @@ void failsafe(int msec, int scs)
 	ulong sh, sl, l, h, t;
 	unsigned char c;
 	volatile char *pp;
+
+#if 0
+// memetest: don't overwrite background
 	
 	for(i=0, pp=(char *)(SCREEN_ADR+(18*160)+(18*2)+1); i<40; i++, pp+=2) {
 		*pp = 0x1E;
@@ -69,6 +72,7 @@ void failsafe(int msec, int scs)
 	for(i=0, pp=(char *)(SCREEN_ADR+(18*160)+(55*2)+1); i<3; i++, pp+=2) {
 		*pp = 0x9E;
 	}	
+#endif
 	
 	cprint(18, 18, "==> Press F1 to enter Fail-Safe Mode <==");
 	
@@ -126,9 +130,12 @@ void failsafe(int msec, int scs)
 	cprint(18, 18, "                                          ");
 	cprint(19, 15, "                                                ");
 	
+#if 0
+// memetest: don't overwrite background
 	for(i=0, pp=(char *)(SCREEN_ADR+(18*160)+(18*2)+1); i<40; i++, pp+=2) {
 		*pp = 0x17;
 	}		
+#endif
 	
 }
 
@@ -153,11 +160,12 @@ static void display_init(void)
   serial_echo_print("[37m[44m");
   serial_echo_print("[0m");
   serial_echo_print("[37m[44m");
-
 	/* Clear screen & set background to blue */
 	for(i=0, pp=(char *)(SCREEN_ADR); i<80*24; i++) {
 		*pp++ = ' ';
-		*pp++ = 0x17;
+		// memetest: don't clear background
+		//*pp++ = 0x17;
+		pp++;
 	}
 
 	/* Make the name background green */
@@ -172,10 +180,13 @@ static void display_init(void)
 	}
 	cprint(0, 15, "+");
 
+#if 0
+// memetest: don't clear background
 	/* Do reverse video for the bottom display line */
 	for(i=0, pp=(char *)(SCREEN_ADR+1+(24 * 160)); i<80; i++, pp+=2) {
 		*pp = 0x71;
 	}
+#endif
 
    serial_echo_print("[0m");
 }

@@ -16,6 +16,7 @@
 #include "cpuid.h"
 #include "smp.h"
 #include "config.h"
+#include "rarepepe.h" // memetest
 #undef TEST_TIMES
 #define DEFTESTS 9
 #define FIRST_DIVISER 3
@@ -371,11 +372,16 @@ void clear_screen()
 {
 	int i;
 	char *pp;
+	unsigned char* pepe;
+	pepe = (unsigned char*) rarepepe;
+	unsigned char bg;
 
 	/* Clear screen & set background to blue */
 	for(i=0, pp=(char *)(SCREEN_ADR); i<80*25; i++) {
 		*pp++ = ' ';
-		*pp++ = 0x17;
+		bg = *pepe << 4 | (0xf - *pepe);
+		pepe++;
+		*pp++ = bg;
 	}
 	if (btflag) {
 	    cprint(1, 0, "Boot Trace Enabled");
