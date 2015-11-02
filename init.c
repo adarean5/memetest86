@@ -172,7 +172,7 @@ static void display_init(void)
 	for(i=0, pp=(char *)(SCREEN_ADR+1); i<TITLE_WIDTH; i++, pp+=2) {
 		*pp = 0x20;
 	}
-	cprint(0, 0, "      Memetest86  5.01        ");
+	cprint(0, 0, "     Memetest86  5.01        ");
 
 	/* Set Blinking "+" */
 	for(i=0, pp=(char *)(SCREEN_ADR+1); i<2; i++, pp+=30) {
