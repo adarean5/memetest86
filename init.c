@@ -91,7 +91,7 @@ void failsafe(int msec, int scs)
 	/* save the starting time */
 	asm __volatile__(
 		"rdtsc":"=a" (sl),"=d" (sh));
-	music_tick_count = t / 50;
+	music_tick_count = 0;
 
 	/* loop for n seconds */
 	while (1) {
@@ -106,7 +106,7 @@ void failsafe(int msec, int scs)
 
 		t = h * ((unsigned)0xffffffff / v->clks_msec);
 		t += (l / v->clks_msec);
-		unsigned int new_music_tick = t / 50;
+		unsigned int new_music_tick = t / MUSIC_MS_PER_TICK;
 		if (new_music_tick != music_tick_count) {
 			music_tick_count = new_music_tick;
 			music_tick();

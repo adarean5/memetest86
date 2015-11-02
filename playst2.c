@@ -80,7 +80,7 @@ void music_init() {
 void music_play_forever() {
 	while (1) {
 		music_tick();
-		sleep(50, 0, 0, 1);
+		sleep(MUSIC_MS_PER_TICK, 0, 0, 1);
 	}
 }
 
