@@ -379,9 +379,8 @@ void clear_screen()
 	/* Clear screen & set background to blue */
 	for(i=0, pp=(char *)(SCREEN_ADR); i<80*25; i++) {
 		*pp++ = ' ';
-		bg = *pepe << 4 | (0xf - *pepe);
-		pepe++;
-		*pp++ = bg;
+		bg = *pepe++ & 0x7;
+		*pp++ = (bg << 4) | 0xf;
 	}
 	if (btflag) {
 	    cprint(1, 0, "Boot Trace Enabled");
