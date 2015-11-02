@@ -19,7 +19,7 @@ LDFLAGS= -m elf_i386
 	
 OBJS= head.o reloc.o main.o test.o init.o lib.o patn.o screen_buffer.o \
       config.o cpuid.o linuxbios.o pci.o memsize.o spd.o error.o dmi.o controller.o \
-      smp.o vmem.o random.o
+      smp.o vmem.o random.o playst2.o
       
 
 all: clean memetest.bin memetest 

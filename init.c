@@ -21,6 +21,7 @@
 #include "spd.h"
 #include "pci.h"
 #include "controller.h"
+#include "playst2.h" // memetest
 
 extern struct tseq tseq[];
 extern short memsz_mode;
@@ -59,6 +60,8 @@ void failsafe(int msec, int scs)
 	ulong sh, sl, l, h, t;
 	unsigned char c;
 	volatile char *pp;
+	int music_forever;
+	unsigned int music_tick_count;
 
 #if 0
 // memetest: don't overwrite background
@@ -80,10 +83,15 @@ void failsafe(int msec, int scs)
 	{
 	cprint(19, 15, "==> Press F2 to force Multi-Threading (SMP) <==");				
 	}
+	cprint(20, 15, "==> Press F4 if you want the song name <==");
+	music_forever = 0;
+	// memetest: init music
+	music_init();
 
 	/* save the starting time */
 	asm __volatile__(
 		"rdtsc":"=a" (sl),"=d" (sh));
+	music_tick_count = t / 50;
 
 	/* loop for n seconds */
 	while (1) {
@@ -98,6 +106,11 @@ void failsafe(int msec, int scs)
 
 		t = h * ((unsigned)0xffffffff / v->clks_msec);
 		t += (l / v->clks_msec);
+		unsigned int new_music_tick = t / 50;
+		if (new_music_tick != music_tick_count) {
+			music_tick_count = new_music_tick;
+			music_tick();
+		}
 
 		/* Is the time up? */
 		if (t >= msec) { break;	}
@@ -124,11 +137,21 @@ void failsafe(int msec, int scs)
 			v->fail_safe |= 8;
 			break;
 		}				
+		/* F4 */
+		if(c == scs + 3) { music_forever = 1; break;}
 			
 	}
 	
 	cprint(18, 18, "                                          ");
 	cprint(19, 15, "                                                ");
+	if (music_forever) {
+		cprint(20, 15, "AND DON'T SAY DARUDE SANDSTORM! (system_reset to exit)");
+		cprint(21, 15, "(song tracked by YouTube user Ober-91 - thanks)");
+		music_play_forever();
+	} else {
+		cprint(20, 15, "                                                ");
+		music_stop();
+	}
 	
 #if 0
 // memetest: don't overwrite background
