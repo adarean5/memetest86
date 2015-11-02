@@ -1,9 +1,9 @@
 /*
- * MemTest86+ V5 Specific code (GPL V2.0)
- * By Samuel DEMEULEMEESTER, sdemeule@memtest.org
- * http://www.canardpc.com - http://www.memtest.org
+ * MemeTest86+ V5 Specific code (GPL V2.0)
+ * By Samuel DEMEULEMEESTER, sdemeule@memetest.org
+ * http://www.canardpc.com - http://www.memetest.org
  * ------------------------------------------------
- * init.c - MemTest-86  Version 3.6
+ * init.c - MemeTest-86  Version 3.6
  *
  * Released under version 2 of the Gnu Public License.
  * By Chris Brady
@@ -164,7 +164,7 @@ static void display_init(void)
 	for(i=0, pp=(char *)(SCREEN_ADR+1); i<TITLE_WIDTH; i++, pp+=2) {
 		*pp = 0x20;
 	}
-	cprint(0, 0, "      Memtest86  5.01        ");
+	cprint(0, 0, "      Memetest86  5.01        ");
 
 	/* Set Blinking "+" */
 	for(i=0, pp=(char *)(SCREEN_ADR+1); i<2; i++, pp+=30) {

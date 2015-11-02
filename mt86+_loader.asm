@@ -96,9 +96,9 @@ foundprotected:
 
 ; ------------
 
-need386	db "Sorry, you need at least a 386 CPU to use Memtest86+."
+need386	db "Sorry, you need at least a 386 CPU to use Memetest86+."
 	db 13,10,"$"
-noreal	db "You cannot run Memtest86+ if the system already is in"
+noreal	db "You cannot run Memetest86+ if the system already is in"
 	db " protected mode.",13,10,"$"
 
 ; ------------
@@ -163,7 +163,7 @@ findgdt:
 	and eax,1ffh	; assume GDT in first sector of setup.S
 	; *** WARNING: this is needed because setup.S contains
 	; *** HARDCODED offset of setup.S on linear 90200h, which
-	; *** is 90000h + bootsect.S ... flaw in Memtest86!
+	; *** is 90000h + bootsect.S ... flaw in Memetest86!
 
 	mov cx,[cs:bufsetup+2]		; setup.S segment
 	movzx ecx,cx
@@ -188,7 +188,7 @@ findgdt:
 	cli
 	lss sp,[cs:newstack]	; stack in first 64k now!
 	movzx esp,sp		; ensure 16bit stack pointer
-	; Memtest86 head.S assumes that it can just turn SS to
+	; Memetest86 head.S assumes that it can just turn SS to
 	; linear. This would put the stack at 0:200h or so for us
 	; if we fail to move the stack around ...
 
@@ -220,8 +220,8 @@ nogdt	db "lgdt [...] not found at setup.S offset 0ch,",13,10
 	db "(file offset 20ch is not 0fh, 01h, 16h)",13,10
 	db "please adjust and recompile memtestl...",13,10,"$"
 
-trying	db "Now trying to start Memtest86...",13,10
-	db "You have to reboot to leave Memtest86 again.",13,10
+trying	db "Now trying to start Memetest86...",13,10
+	db "You have to reboot to leave Memetest86 again.",13,10
 	db "Press a key to go on.",13,10,"$"
 
 ; ------------
