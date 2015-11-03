@@ -236,14 +236,14 @@ void init(void)
 	cprint(4, COL_MID,"Testing: ");
 	cprint(5, COL_MID,"Pattern: ");
 	cprint(1, 0, "CLK:           (32b Mode)");
-	cprint(2, 0, "L1 Cache: Unknown ");
-	cprint(3, 0, "L2 Cache: Unknown ");
-  cprint(4, 0, "L3 Cache:  None    ");
+	cprint(2, 0, "L1 Ca$sh: Unknown  ");
+	cprint(3, 0, "L2 Ca$sh: Unknown  ");
+  cprint(4, 0, "L3 Ca$sh:  None     ");
   cprint(5, 0, "Memory  :         ");
   cprint(6, 0, "------------------------------------------------------------------------------");
 	cprint(7, 0, "Core#:");
 	cprint(8, 0, "State:");
-	cprint(9, 0, "Cores:    Active /    Total (Run: All) | Pass:       0        Errors:      0  ");
+	cprint(9, 0, "Core$:    Active /    Total (Run: All) | Pass:       0        Errors:      0  ");
 	cprint(10, 0, "------------------------------------------------------------------------------");
 
 	/*	
@@ -257,7 +257,7 @@ void init(void)
 	*/
 	
 	cprint(7, 39, "| Chipset : Unknown");
-	cprint(8, 39, "| Memory Type : Unknown");
+	cprint(8, 39, "| Memeory Type : Unown ");
 	
 
 	for(i=0; i < 6; i++) {
