@@ -111,7 +111,7 @@
 
 - How long does memetest86+ run? How do I stop it?
 
-  Memetest86+ runs indefinately unless you stop it. It does however repeat the
+  Memetest86+ runs indefinitely unless you stop it. It does however repeat the
   same tests over and over again. Memetest86+ contains a number of different
   tests which each take different approaches in trying to expose any errors in
   your memory. In the top right of your screen you can see the progress of
