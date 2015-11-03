@@ -236,9 +236,9 @@ void init(void)
 	cprint(4, COL_MID,"Testing: ");
 	cprint(5, COL_MID,"Pattern: ");
 	cprint(1, 0, "CLK:           (32b Mode)");
-	cprint(2, 0, "L1 Ca$sh: Unknown  ");
-	cprint(3, 0, "L2 Ca$sh: Unknown  ");
-  cprint(4, 0, "L3 Ca$sh:  None     ");
+	cprint(2, 0, "L1 Ca$h: Unknown  ");
+	cprint(3, 0, "L2 Ca$h: Unknown  ");
+  cprint(4, 0, "L3 Ca$h:  None     ");
   cprint(5, 0, "Memory  :         ");
   cprint(6, 0, "------------------------------------------------------------------------------");
 	cprint(7, 0, "Core#:");
@@ -1070,7 +1070,7 @@ void cpu_cache_speed()
 	/* To measure L1 cache speed we use a block size that is 1/4th */
 	/* of the total L1 cache size since half of it is for instructions */
 	if (l1_cache) {
-		cprint(2, 0, "L1 Cache:     K  ");
+		cprint(2, 0, "L1 Ca$h:     K ");
 		dprint(2, 11, l1_cache, 3, 0);
 		if ((speed=memspeed(STEST_ADDR, (l1_cache/2)*1024, 200))) {
 			cprint(2, 16, "       MB/s");
@@ -1083,7 +1083,7 @@ void cpu_cache_speed()
 	/* the size of the L1 cache.  We have to fudge if the L1 */
 	/* cache is bigger than the L2 */
 	if (l2_cache) {
-		cprint(3, 0, "L2 Cache:     K  ");
+		cprint(3, 0, "L2 Ca$h:     K   ");
 		dprint(3, 10, l2_cache, 4, 0);
 
 		if (l2_cache < l1_cache) {
@@ -1102,7 +1102,7 @@ void cpu_cache_speed()
 
 	if (l3_cache) 
 	{
-		cprint(4, 0, "L3 Cache:     K  ");
+		cprint(4, 0, "L3 Ca$h:     K   ");
    	aprint(4, 10, l3_cache/4);
     //dprint(4, 10, l3_cache, 4, 0);
     
