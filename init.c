@@ -183,7 +183,7 @@ static void display_init(void)
   serial_echo_print("[37m[44m");
   serial_echo_print("[0m");
   serial_echo_print("[37m[44m");
-	/* Clear screen & set background to blue */
+	/* Clear screen & set background to dank */
 	for(i=0, pp=(char *)(SCREEN_ADR); i<80*24; i++) {
 		*pp++ = ' ';
 		// memetest: don't clear background
