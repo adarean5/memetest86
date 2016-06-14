@@ -1,4 +1,4 @@
-# Makefile for MemTest86+
+# Makefile for MemeTest86+
 #
 # Author:		Chris Brady
 # Created:		January 1, 1996
