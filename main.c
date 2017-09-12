@@ -16,7 +16,8 @@
 #include "cpuid.h"
 #include "smp.h"
 #include "config.h"
-#include "rarepepe.h" // memetest
+#include "doge.h" // memetest
+#include "io.h" // memetest
 #undef TEST_TIMES
 #define DEFTESTS 9
 #define FIRST_DIVISER 3
@@ -372,14 +373,29 @@ void clear_screen()
 {
 	int i;
 	char *pp;
-	unsigned char* pepe;
-	pepe = (unsigned char*) rarepepe;
 	unsigned char bg;
+
+	/* memetest: palette for HDR Doge (tm) */
+	/* https://groups.google.com/forum/#!topic/comp.os.msdos.programmer/Oog9SkMtYLE */
+	/* Set the text mode to use the first 16 colors in the 256 color palette */
+	for (i=0; i < 16; i++) {
+		inb(0x3da);
+		outb(i, 0x3c0);
+		outb(i, 0x3c0);
+	}
+	/* return to normal mode */
+	inb(0x3da);
+	outb(0x20, 0x3c0);
+	/* Load the 256 color palette with 16 entries */
+	outb(0, 0x3c8);
+	for (i=0; i < sizeof(dogepalette); i++) {
+		outb(dogepalette[i], 0x3c9);
+	}
 
 	/* Clear screen & set background to blue */
 	for(i=0, pp=(char *)(SCREEN_ADR); i<80*25; i++) {
 		*pp++ = ' ';
-		bg = *pepe++ & 0x7;
+		bg = doge[i];
 		*pp++ = (bg << 4) | 0xf;
 	}
 	if (btflag) {
