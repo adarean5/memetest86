@@ -1,0 +1,50 @@
+Converting for VGA with custom palette
+
+* Crop photo to 1.8:1 ratio (720/400, the ratio of a VGA screen resolution)
+* Squash photo to 80x25 (number of characters in VGA text mode; each char is twice as high as it is wide, so it's going to look squished right now)
+* Open in GIMP, Image -> Mode -> Indexed -> Generate Optimum Palette; maximum colors = 15, dither = floyd-steinberg. (We reserve color 16 for the Memtest UI's text color)
+* File -> Export As -> (something).xpm
+
+The .xpm file contains ascii art of your image plus a palette to apply it. Convert the palette to VGA format (by right shifting each color val by 2), add the reserved white color to the palette list for the font, and convert the ascii art such that each pixel value becomes integer between 0 and 14.
+
+Here's my crappy script to convert an XPM:
+
+```
+import sys
+lc = 0
+palmap = {}
+palin = -1
+outpix = []
+palines = []
+for l in open(sys.argv[1]):
+	if not l.startswith('"'):
+		continue
+	l = l.strip()[:-1].strip('"').strip('"}')
+	print(l, file=sys.stderr)
+	if lc == 0:
+		options = [int(a) for a in l.split()]
+		if options[2] == 15:
+			palin = 0
+	elif lc >= 1 and lc < 1 + options[2]:
+		print("pal", l, file=sys.stderr)
+		palmap[l[0]] = palin
+		if palin != -1:
+			col = int(l[l.rfind("#") + 1:], 16)
+			r = ((col >> 16) & 0xff) >> 2
+			g = ((col >> 8) & 0xff) >> 2
+			b = ((col >> 0) & 0xff) >> 2
+			palines += [r, g, b]
+		palin += 1
+	else:
+		outpix += [palmap[c] for c in l]
+	lc += 1
+palines += [0xff >> 2, 0xff >> 2, 0xff >> 2]
+print("const unsigned char dogepalette[] = {", ",".join(str(a) for a in palines), "};")
+print("const unsigned char doge[] = {", ",".join(str(a) for a in outpix), "};")
+```
+
+python3 convertify.py input.xpm >output.h
+
+Go to main.c, go to clear_screen, modify the palette loading and background setting code as appropriate.
+
+For converting with regular CGA palette (the default palette that the BIOS and Memtest uses in text mode), instead of Generate Optimum Palette, import a CGA palette into GIMP. Follow as normal. Remove the palette loading code, obviously.
