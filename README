@@ -254,7 +254,7 @@ module may work fine in one system and not in another.  This is not
 uncommon and is a source of confusion.  The components are not necessarily
 bad but certain combinations may need to be avoided.
 
-I am often asked about the reliability of errors reported by Mestest86.
+I am often asked about the reliability of errors reported by Memetest86.
 In the vast majority of cases errors reported by the test are valid.
 There are some systems that cause Memetest86 to be confused about the size of
 memory and it will try to test non-existent memory.  This will cause a large
